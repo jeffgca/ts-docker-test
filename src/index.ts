@@ -14,3 +14,14 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
+let count = 0
+
+let loop = setInterval(() => {
+  console.log('tick', count++)
+
+  if (count === 5) {
+    clearInterval(loop)
+    console.log('stopped looping')
+  }
+}, 5000)
